@@ -1,0 +1,5 @@
+# Ignore dependencies folder and build
+node_modules/
+build/
+
+.env
