@@ -1,6 +1,6 @@
-require("dotenv").config();
-const Discord = require("discord.js");
 const { commandHandler } = require("./util/CommandHandler");
+const Discord = require("discord.js");
+require("dotenv").config();
 
 const Config = {
   token: process.env.TOKEN,
@@ -12,9 +12,10 @@ Client.commands = new Map();
 
 Client.login(Config.token);
 Client.on("ready", () => {
+  Client.user.setPresence({ activity: { name: `with ${Config.prefix}help command`, type: 'PLAYING' } })
   console.clear();
   console.log("Pai ta on");
-})
+});
 
 // Commands
 Client.on('message', (message) => {

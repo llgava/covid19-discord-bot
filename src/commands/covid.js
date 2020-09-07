@@ -3,7 +3,6 @@ const { flag, name } = require('country-emoji');
 const fetch = require("node-fetch");
 
 module.exports.run = async (Client, message, args) => {
-  const AuthorUsername = message.author.username;
   let URL = undefined;
   let Config = { flag: undefined, name: undefined }
 
@@ -27,17 +26,17 @@ module.exports.run = async (Client, message, args) => {
     response.json().then(data => {
 
       // Discord Embed Messages
-      const EmbedMessageGlobal = new MessageEmbed()
-        .addField(`${Config.flag} **You are looking for the ${Config.name} Statistics.**`, '\u200b')
+      const EmbedMessage = new MessageEmbed()
+        .addField(`${Config.flag}  **You are looking for the ${Config.name} Statistics.**`, '\u200b')
         .addFields(
-          { name: '😷 Confirmed', value: data.confirmed.value, inline: true },
-          { name: '😢 Deaths', value: data.deaths.value, inline: true },
-          { name: '💪 Recovered', value: data.recovered.value, inline: true },
+          { name: '😷  Confirmed', value: data.confirmed.value, inline: true },
+          { name: '😢  Deaths', value: data.deaths.value, inline: true },
+          { name: '💪  Recovered', value: data.recovered.value, inline: true },
           {
             name: 'What I can do to protect me and my family?', value: 'Most infected people experience a mild illness and recover, but it can be more serious for other people. Use the command `!protection` to see the **World Health Organization** guidelines.'}
         )
 
-      message.channel.send(EmbedMessageGlobal);
+      message.channel.send(EmbedMessage);
     });
   });
 }
