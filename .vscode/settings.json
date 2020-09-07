@@ -1,9 +1,8 @@
 {
   "files.exclude": {
-    ".editorconfig": true,
+    ".editorconfig": false,
     ".gitignore": false,
     "*.md": false,
-    "tsconfig.json": false,
     "package-lock.json": true,
   }
 }
